@@ -15,7 +15,8 @@ const TaskDetail = (props) => {
   const { tasks, setTasks } = props;
   const params = useParams();
   const [isEdit, setIsEdit] = useState(false);
-  const taskDetail = tasks.find((task) => task.id === params.id);
+  const [taskDetail, setTaskDetail] = useState({ title: "", description: "" });
+  const taskFind = tasks.find((task) => task.id === params.id);
 
   useEffect(() => {
     // Перемещение курсора в конец строки при focus()
@@ -25,6 +26,12 @@ const TaskDetail = (props) => {
       textareaRef.current.focus();
     }
   }, [isEdit]);
+
+  useEffect(() => {
+    if (taskFind !== undefined) {
+      setTaskDetail(taskFind);
+    }
+  }, []);
 
   function saveTask() {
     const newTasks = tasks.map((task) => {
@@ -51,60 +58,63 @@ const TaskDetail = (props) => {
   };
 
   const changeInput = (e) => {
-    const changeTasks = tasks.map((task) => {
-      if (task.id === params.id) {
-        return { ...task, title: e.target.value };
-      }
-      return task;
-    });
-    setTasks(changeTasks);
+    setTaskDetail({ ...taskDetail, title: e.target.value });
+    // const changeTasks = tasks.map((task) => {
+    //   if (task.id === params.id && inputValue) {
+    //     return { ...task, title: inputValue };
+    //   }
+    //   return task;
+    // });
+    // setTasks(changeTasks);
   };
 
   const changeDescription = (e) => {
-    const changeTasks = tasks.map((task) => {
-      if (task.id === params.id) {
-        return { ...task, description: e.target.value };
-      }
-      return task;
-    });
-    setTasks(changeTasks);
+    setTaskDetail({ ...taskDetail, description: e.target.value });
+    // const changeTasks = tasks.map((task) => {
+    //   if (task.id === params.id) {
+    //     return { ...task, description: e.target.value };
+    //   }
+    //   return task;
+    // });
+    // setTasks(changeTasks);
   };
 
   const renderTaskDetail = () => {
     return (
       <>
-        <span
-          className={css.task__status}
-          title={"Type task: " + taskDetail.status}
-          style={{ backgroundColor: getColor(taskDetail.status) }}
-        >
-          {getIcon(taskDetail.status)}
-        </span>
-        {!isEdit ? (
-          <h2 className={css.task__title}>
-            {taskDetail.title || "No title task"}
-          </h2>
-        ) : (
-          <div className={css.task__title_wrap}>
-            <input
-              type="text"
-              name="task-title"
-              placeholder="New task title..."
-              value={taskDetail.title}
-              onChange={changeInput}
-              className={clsx(css.task__input, {
-                [css.task__input_error]: !taskDetail.title,
-              })}
-            />{" "}
-            {getIcon("edit")}
-            {taskDetail.title ? null : (
-              <div className={css.task__alert_error}>
-                *required: This task has no title
-              </div>
-            )}
-          </div>
-        )}
-
+        <div className={css.task__block}>
+          <span
+            className={css.task__status}
+            title={"Type task: " + taskDetail.status}
+            style={{ backgroundColor: getColor(taskDetail.status) }}
+          >
+            {getIcon(taskDetail.status)}
+          </span>
+          {!isEdit ? (
+            <h2 className={css.task__title}>
+              {taskDetail.title || "No title task"}
+            </h2>
+          ) : (
+            <div className={css.task__title_wrap}>
+              <input
+                type="text"
+                name="task-title"
+                placeholder="New task title..."
+                value={taskDetail.title}
+                onChange={changeInput}
+                className={clsx(css.task__input, {
+                  [css.task__input_error]: !taskDetail.title,
+                })}
+              />{" "}
+              {getIcon("edit")}
+              {taskDetail.title ? null : (
+                <div className={css.task__alert_error}>
+                  *required: This task has no title
+                </div>
+              )}
+            </div>
+          )}
+        </div>
         {!isEdit ? (
           <p
             className={clsx(css.task__info, {

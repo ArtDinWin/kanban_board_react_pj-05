@@ -1,6 +1,10 @@
 @import "./../../_configcss";
 
 .task{	
+	&__block{
+		display: flex;
+		align-items: center;
+	}
 	&__window{
 		box-sizing: border-box;
 		position: relative;
@@ -18,18 +22,17 @@
 		font-size: $text-subtitle-size;
 		line-height: 28px;
 		font-weight: 500;
-		margin-bottom: 14px;
+		margin: 15px 0 19px 0;
 		display: inline-block;
-		& svg{
-			width: 0.6em;
-		}
+		
 	}
 	&__input {
 		font-size: $text-subtitle-size;
 		line-height: 28px;
 		font-weight: 500;
-		margin: 10px 0 21px 0;
+		margin: 15px 0 19px 0;
 		display: inline-block;
+		width: 100%;
 		&_error{
 			border: $border-error;
 			outline-color: $color-error;
@@ -37,7 +40,12 @@
 	}
 	&__title_wrap{
 		position: relative;
-		display: inline-block;
+		display: inline-flex;
+			column-gap: 5px;
+			& svg {
+				width: 0.9em;
+				margin-top: 10px;
+				}
 	}
 	&__textarea_wrap {
 		position: relative;			
@@ -46,7 +54,7 @@
 		color: $color-error;
 		font-size: 11px;
 		position: absolute;
-		top: 42px;
+		top: 45px;
 		left: 0;
 	}
 	&__alert_warning {
@@ -65,6 +73,7 @@
 		margin-right: 10px;
 		vertical-align: text-bottom;
 		text-align: center;
+		flex-shrink: 0;
 		cursor: help;
 		&-icon{
 			vertical-align: baseline-middle;
