@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ArtDinWin/kanban_board_react_pj-05/static/css/main.802b7957.css",
+    "main.js": "/ArtDinWin/kanban_board_react_pj-05/static/js/main.92594808.js",
+    "static/media/logo.svg": "/ArtDinWin/kanban_board_react_pj-05/static/media/logo.60da50f8ed816ed184774afee22f045a.svg",
+    "index.html": "/ArtDinWin/kanban_board_react_pj-05/index.html",
+    "static/media/close.svg": "/ArtDinWin/kanban_board_react_pj-05/static/media/close.c96368d8ad338e0e15cece058184f588.svg",
+    "static/media/arrow.svg": "/ArtDinWin/kanban_board_react_pj-05/static/media/arrow.9bf3f8711ba85a40967c00df6b1711aa.svg",
+    "main.802b7957.css.map": "/ArtDinWin/kanban_board_react_pj-05/static/css/main.802b7957.css.map",
+    "main.92594808.js.map": "/ArtDinWin/kanban_board_react_pj-05/static/js/main.92594808.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.802b7957.css",
+    "static/js/main.92594808.js"
+  ]
+}
