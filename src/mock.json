@@ -1,0 +1,32 @@
+[
+	{
+			"id": "lhncblm6",
+			"title": "Add Unit tests",
+			"description": "If you want to set up your own Test task with its own set of test classes, then the easiest approach is to create your own source set and Test task instance",
+			"status": "backlog"
+	},
+	{
+			"id": "lhncbyju",
+			"title": "Write a new article",
+			"description": "Even though there are many different topics to write articles about and they might change a lot",
+			"status": "backlog"
+	},
+	{
+			"id": "lhncc2ww",
+			"title": "Work on side project",
+			"description": "Create strict time boundaries for your office hours and side project hours",
+			"status": "ready"
+	},
+	{
+			"id": "lhncc83j",
+			"title": "Learn MVC Architecture",
+			"description": "Most JavaScript application frameworks are based on some variation of the MVC pattern, so before we dive into learning one of those frameworks, we should try to understand the MVC pattern in general.",
+			"status": "inProgress"
+	},
+	{
+			"id": "lhnccepf",
+			"title": "Build Simple App",
+			"description": "Even 15 minutes of effort counts",
+			"status": "finished"
+	}
+]

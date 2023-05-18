@@ -1,0 +1,28 @@
+@import "./../../_configcss";
+
+.wrapper {
+	display: flex;
+	padding: 0 20px 0 22px;
+	height: calc(100vh - 325px);
+	flex: 1 1 auto;	
+	padding: 20px 20px 32px 20px;
+	@media all and (max-width: 768px) {
+			height: 100%;
+		}
+}
+
+.board{
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	column-gap: 24px;
+	color: $text-normal;
+	@media all and (max-width: 768px) {
+			align-items: stretch;
+			row-gap: 24px;
+			flex-direction: column;
+		}
+}
+

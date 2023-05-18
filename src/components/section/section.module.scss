@@ -1,0 +1,19 @@
+@import "./../../_configcss";
+
+.select {
+			display: block;
+			width: 100%;
+			box-sizing: border-box;
+			border: 0px;
+			border-radius: 5px;
+			padding: 7px 9px 7px 8px;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 21px;
+			margin-bottom: 15px;
+	
+			& option {
+				border: 0px;
+				border-radius: 5px;
+			}
+		}

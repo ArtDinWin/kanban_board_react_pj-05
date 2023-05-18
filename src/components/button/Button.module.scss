@@ -1,0 +1,55 @@
+@import "./../../_configcss";
+
+.style {
+	display: inline-block;
+	color: $text-add-btn;
+	cursor: pointer;
+	background-color: transparent;
+	padding: 7px 9px 7px 8px;
+	border-radius: 5px;
+	font-size: $text-regular-size;
+	font-weight: 400;
+	line-height: 21px;
+	align-self: start;
+	border: 1px solid $add-btn-bg-color;
+	&__light {	
+	background-color: $add-btn-bg-color;
+	color: $text-add-btn;		
+		&:hover {
+			background-color: $add-btn-bg-color;
+			box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+		}		
+		&:focus {
+			border: 1px solid $color-light-gray;
+			outline: 0;
+		}					
+		&[disabled] {
+			background-color: transparent;
+			pointer-events: none;	
+			border: 1px solid lightgray;
+		}		
+	}
+
+	&__dark {
+		background-color: $body-background-color;
+		color: $text-btn;
+		border: 1px solid $body-background-color;
+		&:hover {
+			background-color: $main-background-color;
+			box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+		}
+	
+		&:focus {
+			border: 0;
+			outline: 0;
+		}
+	
+		&[disabled] {
+			color: $text-add-btn;
+			background-color: transparent;
+			pointer-events: none;			
+			border: 1px solid lightgray;
+		}
+	}
+
+}

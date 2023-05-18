@@ -1,0 +1,29 @@
+@import "./../../_configcss";
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+}
+.newtask {
+	&__input {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		border: 0px;
+		border-radius: 5px;
+		padding: 7px 9px 7px 8px;
+		font-size: 18px;
+		font-weight: 400;
+		line-height: 21px;
+		margin-bottom: 15px;
+}
+}
+
+.buttons {
+	&__wrap {
+		display: flex;
+		justify-content: flex-start;
+		column-gap: 10px;
+
+	}
+}

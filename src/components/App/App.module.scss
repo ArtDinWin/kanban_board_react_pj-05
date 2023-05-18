@@ -1,0 +1,11 @@
+@import "./../../_configcss";
+
+.wrapper {
+  background: $body-background-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: $text-regular-size;
+  font-weight: $text-regular-weight;
+  line-height: 21px;
+}

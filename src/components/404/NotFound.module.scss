@@ -1,0 +1,17 @@
+@import "./../../_configcss";
+
+.style {
+	&__window {
+		box-sizing: border-box;
+		position: relative;
+		background-color: $item-bg-color;
+		height: 100%;
+		width: 100%;
+		border-radius: 5px;
+		padding: 22px 28px;
+		overflow: hidden;
+	}
+	&__wrap {
+		overflow: auto;
+	}
+}

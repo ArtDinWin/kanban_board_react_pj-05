@@ -1,0 +1,67 @@
+@import "./_configcss";
+
+* {
+    box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: $font-family;  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    color: $color-light;
+    background-color: $body-background-color;
+}
+
+a {
+  color: inherit;
+}
+
+h1{
+  font-size: $text-title-size;
+  font-weight: normal;
+}
+
+button {
+    display: inline-block;
+    color: $text-btn;
+    cursor: pointer;
+    background-color: $body-background-color;
+    padding: 7px 9px 7px 8px;
+    border-radius: 5px;
+    border: 0;
+    font-size: $text-regular-size;
+    font-weight: 400;
+    line-height: 21px;
+    align-self: start;
+    &:hover{
+      background-color: $main-background-color;
+      box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.1);
+    }
+    &:focus {
+      border: 1px solid $color-light-gray;
+      outline: 0;
+    }
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $color-light-gray;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: $list-bg-color;
+}
+
+svg {
+  vertical-align: top;
+}
+
+span svg {
+  vertical-align: -webkit-baseline-middle;
+    width: 14px;
+}
