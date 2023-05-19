@@ -9,6 +9,10 @@
 - SCSS
 - React.js
 - JS
+<hr>
+Можно ознакомиться по ссылке (deploy): https://artdinwin.github.io/kanban_board_react_pj-05/
+<hr>
+Code: https://github.com/ArtDinWin/kanban_board_react_pj-05
 
 
 
