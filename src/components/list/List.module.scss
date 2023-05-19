@@ -39,6 +39,7 @@
 		background-color: $item-bg-color;
 		border-radius: 5px;
 		margin-bottom: 15px;
+		overflow: hidden;
 		&:hover{
 			box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
 		}

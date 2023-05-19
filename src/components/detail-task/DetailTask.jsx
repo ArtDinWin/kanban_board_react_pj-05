@@ -34,28 +34,25 @@ const TaskDetail = (props) => {
   }, [taskFind]);
 
   function saveTask() {
-    if (taskDetail.title) {
-      const newTasks = tasks.map((task) => {
-        return task.id !== params.id
+    if (taskDetail.title.trim()) {
+      const newTasks = tasks.map((task) =>
+        task.id !== params.id
           ? { ...task }
           : {
               ...task,
-              title: taskDetail.title,
+              title: taskDetail.title.trim(),
               description: taskDetail.description,
-            };
-      });
+            }
+      );
       setTasks(newTasks);
     }
   }
 
   const handleEdit = () => {
+    setIsEdit(!isEdit);
+    setAvailableSave(isEdit);
     if (isEdit) {
-      setIsEdit(!isEdit);
-      setAvailableSave(true);
       saveTask();
-    } else {
-      setIsEdit(!isEdit);
-      setAvailableSave(false);
     }
   };
 
@@ -66,6 +63,62 @@ const TaskDetail = (props) => {
   const changeDescription = (e) => {
     setTaskDetail({ ...taskDetail, description: e.target.value });
   };
+
+  const renderTitle = (
+    <h2 className={css.task__title}>
+      {(taskDetail.title && taskDetail.title.trim()) || "No title task"}
+    </h2>
+  );
+
+  const renderInput = (
+    <div className={css.task__title_wrap}>
+      <input
+        type="text"
+        name="task-title"
+        placeholder="New task title..."
+        value={taskDetail.title}
+        onChange={changeInput}
+        className={clsx(css.task__input, {
+          [css.task__input_error]: !taskDetail.title.trim(),
+        })}
+      />{" "}
+      {getIcon("edit")}
+      {taskDetail.title.trim() ? null : (
+        <div className={css.task__alert_error}>
+          *required: This task has no title
+        </div>
+      )}
+    </div>
+  );
+
+  const renderInfoParagraph = (
+    <p
+      className={clsx(css.task__info, {
+        [css.task__info_warning]: !taskDetail.description,
+      })}
+    >
+      {taskDetail.description || "This task has no description"}
+    </p>
+  );
+
+  const renderInfoTextarea = (
+    <div className={css.task__textarea_wrap}>
+      <textarea
+        ref={textareaRef}
+        // autoFocus
+        className={clsx(css.task__info, {
+          [css.task__info_warning]: !taskDetail.description,
+        })}
+        value={taskDetail.description}
+        onChange={changeDescription}
+      />
+      {taskDetail.description ? null : (
+        <div className={css.task__alert_warning}>
+          *warning: This task has no description
+        </div>
+      )}
+    </div>
+  );
 
   const renderTaskDetail = () => {
     return (
@@ -78,62 +131,14 @@ const TaskDetail = (props) => {
           >
             {getIcon(taskDetail.status)}
           </span>
-          {!isEdit ? (
-            <h2 className={css.task__title}>
-              {taskDetail.title || "No title task"}
-            </h2>
-          ) : (
-            <div className={css.task__title_wrap}>
-              <input
-                type="text"
-                name="task-title"
-                placeholder="New task title..."
-                value={taskDetail.title}
-                onChange={changeInput}
-                className={clsx(css.task__input, {
-                  [css.task__input_error]: !taskDetail.title,
-                })}
-              />{" "}
-              {getIcon("edit")}
-              {taskDetail.title ? null : (
-                <div className={css.task__alert_error}>
-                  *required: This task has no title
-                </div>
-              )}
-            </div>
-          )}
+          {!isEdit ? renderTitle : renderInput}
         </div>
-        {!isEdit ? (
-          <p
-            className={clsx(css.task__info, {
-              [css.task__info_warning]: !taskDetail.description,
-            })}
-          >
-            {taskDetail.description || "This task has no description"}
-          </p>
-        ) : (
-          <div className={css.task__textarea_wrap}>
-            <textarea
-              ref={textareaRef}
-              // autoFocus
-              className={clsx(css.task__info, {
-                [css.task__info_warning]: !taskDetail.description,
-              })}
-              value={taskDetail.description}
-              onChange={changeDescription}
-            />
-            {taskDetail.description ? null : (
-              <div className={css.task__alert_warning}>
-                *warning: This task has no description
-              </div>
-            )}
-          </div>
-        )}
+        {!isEdit ? renderInfoParagraph : renderInfoTextarea}
         <Button
           textBtn={["Edit", "Save"]}
           styleBtn={"dark"}
           handleBtn={handleEdit}
-          enabled={isEdit && !taskDetail.title ? false : true}
+          enabled={isEdit && !taskDetail.title.trim() ? false : true}
           isItemVisible={isEdit}
         />
         <Link to="/">

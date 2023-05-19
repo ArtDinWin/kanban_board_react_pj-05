@@ -12,7 +12,7 @@ const FormAddNewTask = (props) => {
 
   const hundleSubmit = (e) => {
     e.preventDefault();
-    addNewTask(valueInput);
+    addNewTask(valueInput.trim());
     setIsFormVisible();
   };
 
@@ -32,7 +32,7 @@ const FormAddNewTask = (props) => {
         <Button
           textBtn={["Submit", "Submit"]}
           styleBtn="dark"
-          enabled={valueInput ? true : false}
+          enabled={valueInput && valueInput.trim() ? true : false}
           type="submit"
           idForm={idForm}
         />
