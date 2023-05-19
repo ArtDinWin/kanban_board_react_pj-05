@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/kanban_board_react_pj-05/static/css/main.d5d33fb7.css",
-    "main.js": "/kanban_board_react_pj-05/static/js/main.ec8af1c8.js",
+    "main.css": "/kanban_board_react_pj-05/static/css/main.f6c05b03.css",
+    "main.js": "/kanban_board_react_pj-05/static/js/main.de4ddc22.js",
     "static/media/logo.svg": "/kanban_board_react_pj-05/static/media/logo.60da50f8ed816ed184774afee22f045a.svg",
     "index.html": "/kanban_board_react_pj-05/index.html",
     "static/media/close.svg": "/kanban_board_react_pj-05/static/media/close.c96368d8ad338e0e15cece058184f588.svg",
     "static/media/arrow.svg": "/kanban_board_react_pj-05/static/media/arrow.9bf3f8711ba85a40967c00df6b1711aa.svg",
-    "main.d5d33fb7.css.map": "/kanban_board_react_pj-05/static/css/main.d5d33fb7.css.map",
-    "main.ec8af1c8.js.map": "/kanban_board_react_pj-05/static/js/main.ec8af1c8.js.map"
+    "main.f6c05b03.css.map": "/kanban_board_react_pj-05/static/css/main.f6c05b03.css.map",
+    "main.de4ddc22.js.map": "/kanban_board_react_pj-05/static/js/main.de4ddc22.js.map"
   },
   "entrypoints": [
-    "static/css/main.d5d33fb7.css",
-    "static/js/main.ec8af1c8.js"
+    "static/css/main.f6c05b03.css",
+    "static/js/main.de4ddc22.js"
   ]
 }
