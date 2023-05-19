@@ -2,6 +2,7 @@ import clsx from "clsx";
 import css from "./Button.module.scss";
 
 const Button = ({
+  children,
   textBtn,
   styleBtn,
   handleBtn,
@@ -26,6 +27,8 @@ const Button = ({
         ? clsx(css.style, css.style__dark)
         : styleBtn === "light"
         ? clsx(css.style, css.style__light)
+        : styleBtn === "trash"
+        ? clsx(css.style, css.style__trash)
         : "";
   }
 
@@ -36,7 +39,7 @@ const Button = ({
       type={type === undefined ? "button" : "submit"}
       form={idForm === undefined ? "" : idForm}
     >
-      {textBtn[active]}
+      {children ? children : textBtn[active]}
     </button>
   );
 
@@ -47,7 +50,7 @@ const Button = ({
       disabled
       type={"button"}
     >
-      {textBtn[active]}
+      {children ? children : textBtn[active]}
     </button>
   );
 

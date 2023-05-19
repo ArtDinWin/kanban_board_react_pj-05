@@ -56,4 +56,10 @@
 			border: 1px solid lightgray;
 		}
 	}
+		&__trash {
+			background-color: #bf0000;
+			& svg {
+			fill: $text-btn;
+			}
+		}
 }

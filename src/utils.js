@@ -6,6 +6,7 @@ import {
   FaFlagCheckered,
   FaRegEdit,
   FaBell,
+  FaTrashAlt,
 } from "react-icons/fa";
 
 const getColor = (status) =>
@@ -32,6 +33,8 @@ const getIcon = (type) =>
     <FaRegEdit />
   ) : type === "bell" ? (
     <FaHandPointUp />
+  ) : type === "trash" ? (
+    <FaTrashAlt />
   ) : null;
 
 export { getColor, getIcon };

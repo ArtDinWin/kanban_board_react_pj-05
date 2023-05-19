@@ -76,7 +76,7 @@
 		flex-shrink: 0;
 		cursor: help;
 		& svg{
-			margin-top: -4px;
+			margin-top: -2px;
 			width: 12px;
 		}
 	}
@@ -119,6 +119,9 @@
 				top: 11px;
 		}
 	}
+	&__trash{
+		background-color: #bf0000;
+	}
 }
 textarea{
 	&.task {
@@ -138,5 +141,12 @@ textarea{
 h2 {
 &.task__title {
 		overflow-y: auto;
+	}
+}
+.buttons{
+	&__wrap{
+		display: flex;
+		justify-content: space-between;
+		
 	}
 }

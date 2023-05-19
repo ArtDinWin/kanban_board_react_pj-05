@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { useParams } from "react-router";
 import css from "./DetailTask.module.scss";
 import Close from "./../../assets/close.svg";
@@ -15,6 +15,7 @@ const TaskDetail = (props) => {
   const { tasks, setTasks } = props;
   const params = useParams();
   const [isEdit, setIsEdit] = useState(false);
+  const [isReplace, setIsReplace] = useState(false);
   const [taskDetail, setTaskDetail] = useState({ title: "", description: "" });
   const taskFind = tasks.find((task) => task.id === params.id);
 
@@ -120,6 +121,21 @@ const TaskDetail = (props) => {
     </div>
   );
 
+  const handleTrash = () => {
+    const answer = window.confirm(`Вы точно хотите удалить данную задачу?`);
+    console.log("answer", answer);
+    if (answer) {
+      const newTasks = [...tasks];
+      const taskChangeId = newTasks
+        .map((task) => task.id)
+        .indexOf(taskDetail.id);
+      newTasks.splice(taskChangeId, 1);
+      console.log("taskDetail.id", taskDetail.id);
+      setIsReplace(true);
+      setTasks(newTasks);
+    }
+  };
+
   const renderTaskDetail = () => {
     return (
       <>
@@ -134,13 +150,31 @@ const TaskDetail = (props) => {
           {!isEdit ? renderTitle : renderInput}
         </div>
         {!isEdit ? renderInfoParagraph : renderInfoTextarea}
-        <Button
-          textBtn={["Edit", "Save"]}
-          styleBtn={"dark"}
-          handleBtn={handleEdit}
-          enabled={isEdit && !taskDetail.title.trim() ? false : true}
-          isItemVisible={isEdit}
-        />
+        <div className={css.buttons__wrap}>
+          <Button
+            textBtn={["Edit", "Save"]}
+            styleBtn={"dark"}
+            handleBtn={handleEdit}
+            enabled={isEdit && !taskDetail.title.trim() ? false : true}
+            isItemVisible={isEdit}
+          />
+          {/* <button
+            type="button"
+            className={css.task__trash}
+            onClick={handleTrash}
+          >
+            {getIcon("trash")}
+          </button> */}
+          <Button
+            textBtn={["", ""]}
+            styleBtn={"trash"}
+            enabled={true}
+            isItemVisible={true}
+            handleBtn={handleTrash}
+          >
+            {getIcon("trash")}
+          </Button>
+        </div>
         <Link to="/">
           <div className={css.task__close}>
             <img
@@ -154,12 +188,14 @@ const TaskDetail = (props) => {
       </>
     );
   };
-
+  console.log("isReplace", isReplace);
   return (
     <>
       <div className={css.task__window}>
         {taskFind ? (
           renderTaskDetail()
+        ) : isReplace ? (
+          <Navigate replace to="/" />
         ) : (
           <NotFound text={"Task with ID = '" + params.id + "' not found! "} />
         )}

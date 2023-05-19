@@ -14,27 +14,53 @@ const Footer = (props) => {
   return (
     <footer className={css.wrapper}>
       <div>
-        <div className={css.wrapper__item}>
-          <span
-            className={css.item__status}
-            title={"Type task: " + LIST_TYPES.BACKLOG}
-            style={{ backgroundColor: getColor(LIST_TYPES.BACKLOG) }}
-          >
-            {getIcon(LIST_TYPES.BACKLOG)}
-          </span>
-          <span className={css.wrapper__item_title}>Active tasks: </span>
-          {getCountTasks(props.tasks, LIST_TYPES.BACKLOG)}
+        <div className={css.wrapper__block}>
+          <div className={css.wrapper__item}>
+            <span
+              className={css.item__status}
+              title={"Type task: " + LIST_TYPES.BACKLOG}
+              style={{ backgroundColor: getColor(LIST_TYPES.BACKLOG) }}
+            >
+              {getIcon(LIST_TYPES.BACKLOG)}
+            </span>
+            <span className={css.wrapper__item_title}>Active: </span>
+            {getCountTasks(props.tasks, LIST_TYPES.BACKLOG)}
+          </div>
+          <div className={css.wrapper__item}>
+            <span
+              className={css.item__status}
+              title={"Type task: " + LIST_TYPES.READY}
+              style={{ backgroundColor: getColor(LIST_TYPES.READY) }}
+            >
+              {getIcon(LIST_TYPES.READY)}
+            </span>
+            <span className={css.wrapper__item_title}>Ready: </span>
+            {getCountTasks(props.tasks, LIST_TYPES.READY)}
+          </div>
         </div>
-        <div className={css.wrapper__item}>
-          <span
-            className={css.item__status}
-            title={"Type task: " + LIST_TYPES.FINISHED}
-            style={{ backgroundColor: getColor(LIST_TYPES.FINISHED) }}
-          >
-            {getIcon(LIST_TYPES.FINISHED)}
-          </span>
-          <span className={css.wrapper__item_title}>Finished tasks: </span>
-          {getCountTasks(props.tasks, LIST_TYPES.FINISHED)}
+        <div className={css.wrapper__block}>
+          <div className={css.wrapper__item}>
+            <span
+              className={css.item__status}
+              title={"Type task: " + LIST_TYPES.IN_PROGRESS}
+              style={{ backgroundColor: getColor(LIST_TYPES.READY) }}
+            >
+              {getIcon(LIST_TYPES.IN_PROGRESS)}
+            </span>
+            <span className={css.wrapper__item_title}>Doing: </span>
+            {getCountTasks(props.tasks, LIST_TYPES.IN_PROGRESS)}
+          </div>
+          <div className={css.wrapper__item}>
+            <span
+              className={css.item__status}
+              title={"Type task: " + LIST_TYPES.FINISHED}
+              style={{ backgroundColor: getColor(LIST_TYPES.FINISHED) }}
+            >
+              {getIcon(LIST_TYPES.FINISHED)}
+            </span>
+            <span className={css.wrapper__item_title}>Finished: </span>
+            {getCountTasks(props.tasks, LIST_TYPES.FINISHED)}
+          </div>
         </div>
       </div>
       <div className={css.wrapper__author}>
