@@ -31,19 +31,21 @@ const TaskDetail = (props) => {
     if (taskFind !== undefined) {
       setTaskDetail(taskFind);
     }
-  }, []);
+  }, [taskFind]);
 
   function saveTask() {
-    const newTasks = tasks.map((task) => {
-      return task.id !== params.id
-        ? { ...task }
-        : {
-            ...task,
-            title: taskDetail.title,
-            description: taskDetail.description,
-          };
-    });
-    setTasks(newTasks);
+    if (taskDetail.title) {
+      const newTasks = tasks.map((task) => {
+        return task.id !== params.id
+          ? { ...task }
+          : {
+              ...task,
+              title: taskDetail.title,
+              description: taskDetail.description,
+            };
+      });
+      setTasks(newTasks);
+    }
   }
 
   const handleEdit = () => {
@@ -59,24 +61,10 @@ const TaskDetail = (props) => {
 
   const changeInput = (e) => {
     setTaskDetail({ ...taskDetail, title: e.target.value });
-    // const changeTasks = tasks.map((task) => {
-    //   if (task.id === params.id && inputValue) {
-    //     return { ...task, title: inputValue };
-    //   }
-    //   return task;
-    // });
-    // setTasks(changeTasks);
   };
 
   const changeDescription = (e) => {
     setTaskDetail({ ...taskDetail, description: e.target.value });
-    // const changeTasks = tasks.map((task) => {
-    //   if (task.id === params.id) {
-    //     return { ...task, description: e.target.value };
-    //   }
-    //   return task;
-    // });
-    // setTasks(changeTasks);
   };
 
   const renderTaskDetail = () => {
@@ -165,7 +153,7 @@ const TaskDetail = (props) => {
   return (
     <>
       <div className={css.task__window}>
-        {taskDetail ? (
+        {taskFind ? (
           renderTaskDetail()
         ) : (
           <NotFound text={"Task with ID = '" + params.id + "' not found! "} />

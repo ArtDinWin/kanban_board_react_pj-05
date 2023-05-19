@@ -6,62 +6,68 @@
 	align-items: center;
 	padding: 0 20px 0 22px;
 	height: 55px;
+
 	&__item {
-			display: inline-block;
-			&_title{
-				@media all and (max-width: 576px) {
-						display: none;			
-						
-							
-					}
+		display: inline-block;
+
+		&_title {
+			@media all and (max-width: 576px) {
+				display: none;
 			}
 		}
+	}
+
 	&__item:not(:last-child) {
 		padding-right: 20px;
+
 		@media all and (max-width: 768px) {
-				padding-right: 8px;
-			}
+			padding-right: 8px;
+		}
 	}
+
 	&__author {
 		margin-left: auto;
-		@media all and (max-width: 768px) {		
+
+		@media all and (max-width: 768px) {
 			text-align: right;
-			
+			padding-left: 10px;
 		}
+
 		&_title {
-					@media all and (max-width: 576px) {
-						display: none;
-					}
-				}
-		&_year {
-					@media all and (max-width: 320px) {
-						display: none;
-					}
-				}
-	}
-}
-.item{
-	&__status {
-			display: inline-block;
-			border-radius: 50%;
-			background-color: $list-bg-color;
-			height: 30px;
-			width: 30px;
-			margin-right: 10px;
-			vertical-align: text-bottom;
-			text-align: center;
-			cursor: help;
-			display: none;
 			@media all and (max-width: 576px) {
-						display: inline-block;
-			}
-			& svg {
-				vertical-align: baseline-middle;
-				vertical-align: -webkit-baseline-middle;
-					margin-top: -4px;
-				width: 12px;
-				fill: $color-dark;
+				display: none;
 			}
 		}
 
-}	
+		&_year {
+			@media all and (max-width: 320px) {
+				display: none;
+			}
+		}
+	}
+}
+
+.item {
+	&__status {
+		display: inline-block;
+		border-radius: 50%;
+		background-color: $list-bg-color;
+		height: 30px;
+		width: 30px;
+		margin-right: 10px;
+		vertical-align: text-bottom;
+		text-align: center;
+		cursor: help;
+		display: none;
+
+		@media all and (max-width: 576px) {
+			display: inline-block;
+		}
+
+		& svg {
+			margin-top: -4px;
+			width: 12px;
+			fill: $color-dark;
+		}
+	}
+}
