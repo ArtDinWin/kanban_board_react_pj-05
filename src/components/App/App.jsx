@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from "react";
-import { HashRouter as Router } from "react-router-dom";
+// import { HashRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Header from "./../header/Header";
 import Main from "./../main/Main";
 import Footer from "./../footer/Footer";
@@ -21,7 +22,7 @@ function App() {
   }, [tasks, availableSave]);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <AppContext.Provider value={{ setAvailableSave }}>
         <div className={css.wrapper}>
           <Header tasks={tasks} setTasks={setTasks} />
