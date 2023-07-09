@@ -1,5 +1,5 @@
 # Проект «Канбан-доска» React.JS
-
+![Preview](https://github.com/ArtDinWin/kanban_board_react_pj-05/blob/master/preview.png)
 Самостоятельная работа/проект, который направлен на отработку навыков разработки на фреймворке React.js
 
 Канбан-доска – популярный инструмент для визуализации и разбивки какой-либо задачи на этапы.
@@ -11,6 +11,7 @@
 - SCSS
 - React.js
 - JS
+- хранение данных в localstorage
 <hr>
 Можно ознакомиться по ссылке (deploy): https://artdinwin.github.io/kanban_board_react_pj-05/
 <hr>
